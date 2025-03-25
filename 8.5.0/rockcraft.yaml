@@ -6,6 +6,7 @@ description: |
   DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3,
   POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
 license: Apache-2.0
+run-user: _daemon_
 base: bare
 build-base: ubuntu@24.04
 platforms:
