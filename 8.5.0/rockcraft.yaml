@@ -1,0 +1,19 @@
+name: curl-rock
+version: "8.5.0"
+summary: command line tool for transferring data with URL syntax
+description: |
+  curl is a command line tool for transferring data with URL syntax, supporting
+  DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3,
+  POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, TELNET and TFTP.
+license: Apache-2.0
+base: bare
+build-base: ubuntu@24.04
+platforms:
+  amd64:
+
+parts:
+  curl:
+    plugin: nil
+    stage-packages:
+      - ca-certificates_data
+      - curl_bins
