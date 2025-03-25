@@ -9,7 +9,7 @@ jobs:
       oci-archive-name: "curl-rock"
       rock-repo: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
       rock-repo-commit: ${{ github.event_name == 'push' && github.ref_name || github.head_ref }}
-      rockfile-directory: v1.6.7
+      rockfile-directory: 8.5.0
 
   test:
     uses: canonical/oci-factory/.github/workflows/Test-Rock.yaml@main
