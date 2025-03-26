@@ -18,3 +18,25 @@ jobs:
       - build
     with:
       oci-archive-name: "curl-rock"
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: curl-rock
+
+      - name: 'Set up skopeo'
+        uses: warjiang/setup-skopeo@main
+        with:
+          version: latest
+
+      - run: skopeo copy --multi-arch all oci-archive:curl-rock docker://ghcr.io/rockcrafters/curl-rock/curl:latest
