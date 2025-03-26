@@ -20,7 +20,7 @@ jobs:
       oci-archive-name: "curl-rock"
 
   publish:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: 'Login to GitHub Container Registry'
